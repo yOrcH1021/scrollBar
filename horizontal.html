@@ -1,0 +1,164 @@
+<html class="html">
+
+<head>
+	<title>Horizontal scroll</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style>
+
+		body, html {
+			margin: 0;
+			overflow: hidden;
+		}
+		.two {
+			display: inline-block;
+		}
+		.horizontal {
+			width: 100%;
+			float: left;
+			height: calc(100% - 17px);
+			padding-bottom: 17px;
+			overflow: hidden;
+		}
+		.horizontal .one {
+		    overflow-x: auto;
+		    overflow-y: hidden;
+		    white-space: nowrap;
+		    position: relative;
+		    left: -17px;
+		    width: 100%;
+		    padding: 0 17px;
+		}
+		.horizontal .two {
+			box-shadow: inset 1px 0 0 0 black;
+			width: calc(300px - 34px);
+			height: calc(100% - 34px);
+			margin-left: -4px;
+			padding: 17px;
+		}
+		.vertical {
+		    width: 600px;
+		    float: left;
+		    height: 300px;
+		    overflow: hidden;
+		}
+		.vertical .one {
+			height: 100%;
+			overflow-x: hidden;
+			overflow-y: auto;
+			position: relative;
+			top: -17px;
+			padding: 17px 0;
+		}
+		.vertical .two {
+			width: 100%;
+			height: 300px;
+			box-shadow: inset 0 1px 0 0 black;
+		}
+		.horizontal .two:first-child,
+		.vertical .two:first-child {
+			box-shadow: none;
+			margin: 0;
+		}
+
+		.horizontal .mask {
+			box-shadow: inset 0 5px 0 0 white, inset 0 -5px 0 0 white;
+			position: absolute;
+			height: 17px;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+		}
+		.horizontal .mask:before,
+		.horizontal .mask:after {
+			bottom: 0;
+			width: 20px;
+		}
+		.horizontal .mask:before {
+			-webkit-transform: rotate(90deg);
+			-ms-transform: rotate(90deg);
+			transform: rotate(90deg);
+			bottom: auto;
+			left: 0;
+			top: 0;
+		}
+		.horizontal .mask:after {
+			-webkit-transform: rotate(-90deg);
+			-ms-transform: rotate(-90deg);
+			transform: rotate(-90deg);
+			bottom: auto;
+			top: -3px;
+			right: 0;
+		}
+
+		.vertical .mask {
+			box-shadow: inset 5px 0 0 0 white, inset -5px 0 0 0 white;
+			position: absolute;
+			height: 100%;
+			width: 17px;
+			right: 0;
+			top: 0;
+		}
+		.vertical .mask:before,
+		.vertical .mask:after {
+			bottom: 0;
+			right: 0;
+		}
+		.vertical .mask:before {
+			-webkit-transform: rotate(180deg);
+			-ms-transform: rotate(180deg);
+			transform: rotate(180deg);
+			bottom: auto;
+			top: 0;
+		}
+
+		.mask {
+			pointer-events: none;
+			overflow: hidden;
+			z-index: 1;
+		}
+		.mask:before,
+		.mask:after {
+			background: url(scroll.png);
+			position: absolute;
+			height: 20px;
+			content: '';
+			width: 17px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="horizontal">
+			<div class="mask"></div>
+			<div class="one">
+				<div class="two">1</div>
+				<div class="two">2</div>
+				<div class="two">3</div>
+				<div class="two">4</div>
+				<div class="two">5</div>
+				<div class="two">6</div>
+				<div class="two">7</div>
+				<div class="two">8</div>
+				<div class="two">9</div>
+				<div class="two">10</div>
+				<div class="two">11</div>
+				<div class="two">12</div>
+				<div class="two">13</div>
+				<div class="two">14</div>
+				<div class="two">15</div>
+				<div class="two">16</div>
+				<div class="two">17</div>
+				<div class="two">18</div>
+				<div class="two">19</div>
+				<div class="two">20</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
